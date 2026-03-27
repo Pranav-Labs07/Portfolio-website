@@ -425,6 +425,11 @@ hr {
   z-index: 1;
 }
 
+/* .peak{
+  height:10px;
+  width:15px;
+} */
+
 .service-card p {
   color: #555;
   font-size: 0.9rem;
