@@ -678,4 +678,146 @@ body {
   font-size: 0.9rem;
   margin-bottom: 15px;
 }
+.contact{
+    margin: 160px 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
+.contact p{
+    padding-bottom: 20px;
+    font-size: 13px;
+    color: rgb(50, 50, 50); 
+}
+
+.contact h1{
+    font-family: "Open Sans", sans-serif;
+    padding-bottom: 10px;
+}
+
+.contact hr{
+    width: 10%;
+}
+
+.contact-content {
+  padding-top: 50px;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-info p {
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: #222;
+}
+
+.contact-item i {
+  font-size: 20px;
+  color: #474af0;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  width: 50px;
+  height: 50px;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-5px);
+  color: #fff;
+}
+
+.social-link[href*="github"]:hover {
+  background: #000;
+}
+
+.social-link[href*="linkedin"]:hover {
+  background: #0A66C2;
+}
+
+.social-link[href*="wa.me"]:hover {
+  background: #25D366;
+}
+
+/* Form */
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #474af0;
+}
+
+.btn-send {
+  background: #474af0;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn-send:hover {
+  background: #2c36d9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-content {
+    flex-direction: column;
+  }
+}
