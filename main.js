@@ -11,10 +11,10 @@ navLinks.forEach(link => {
     const targetId = link.getAttribute('href').substring(1);
     const targetSection = document.getElementById(targetId);
 
-    // window.scrollTo({
-    //   top: targetSection.offsetTop - 80, 
-    //   behavior: 'smooth'
-    // });
+    window.scrollTo({
+      top: targetSection.offsetTop - 80, 
+      behavior: 'smooth'
+    });
 
     removeActive();
     link.parentElement.classList.add('active');
