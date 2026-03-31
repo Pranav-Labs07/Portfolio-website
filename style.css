@@ -814,6 +814,66 @@ body {
 .btn-send:hover {
   background: #2c36d9;
 }
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: #474af0;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.footer-social a {
+  color: #fff;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #474af0;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #aaa;
+}
 
 /* Responsive */
 @media (max-width: 900px) {
