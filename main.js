@@ -24,19 +24,19 @@ navLinks.forEach(link => {
 window.addEventListener('scroll', () => {
   let scrollPos = window.scrollY + 100;
 
-  // sections.forEach(section => {
-  //   if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-  //     removeActive();
-  //     const activeLink = document.querySelector(`.ul-list li a[href="#${section.id}"]`);
-  //     if (activeLink) activeLink.parentElement.classList.add('active');
-  //   }
-  // });
+  sections.forEach(section => {
+    if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+      removeActive();
+      const activeLink = document.querySelector(`.ul-list li a[href="#${section.id}"]`);
+      if (activeLink) activeLink.parentElement.classList.add('active');
+    }
+  });
 
-  // if(window.scrollY > 500){
-  //   backToTop.style.display = "flex";
-  // } else {
-  //   backToTop.style.display = "none";
-  // }
+  if(window.scrollY > 500){
+    backToTop.style.display = "flex";
+  } else {
+    backToTop.style.display = "none";
+  }
 
   revealElements.forEach(el => {
     const windowHeight = window.innerHeight;
@@ -145,3 +145,21 @@ document.addEventListener("DOMContentLoaded", () => {
     mainPage.classList.add("visible");
   }, 4000);
 });
+
+(function () {
+  emailjs.init("tlkkiNRN0S6TSydUn");
+})();
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  emailjs.sendForm("service_aorafuc", "template_qef6erh", this)
+    .then(function () {
+      alert("Message sent successfully!");
+      document.getElementById("contact-form").reset();
+    })
+    .catch(function (error) {
+      console.error("FAILED...", error);
+      alert("Failed to send message. Try again.");
+    });
+});
+
