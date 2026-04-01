@@ -9,11 +9,9 @@ let running = true;
 
 let highScore = localStorage.getItem("runnerHigh") || 0;
 
-// AUDIO (safe)
 const bgMusic = new Audio("assets/bg.mp3");
 bgMusic.loop = true;
 
-// INIT
 init();
 
 function init() {
@@ -27,13 +25,13 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  // LIGHT
+
   const light = new THREE.PointLight(0xffffff, 2, 100);
   light.position.set(0, 20, 10);
   scene.add(light);
 
   createGround();
-  loadCharacter(); // will fallback if fails
+  loadCharacter(); 
   setupControls();
 
   document.getElementById("highscore").innerText = "Best: " + highScore;
@@ -41,7 +39,6 @@ function init() {
   animate();
 }
 
-// GROUND (IMPORTANT so you SEE something)
 function createGround() {
   const geo = new THREE.PlaneGeometry(20, 200);
   const mat = new THREE.MeshStandardMaterial({ color: 0x222222 });
@@ -50,14 +47,14 @@ function createGround() {
   scene.add(ground);
 }
 
-// LOAD CHARACTER (SAFE WITH FALLBACK)
+
 function loadCharacter() {
   const loader = new THREE.GLTFLoader();
 
   loader.load(
     "assets/character.glb",
 
-    // SUCCESS
+
     gltf => {
       player = gltf.scene;
       player.scale.set(1,1,1);
@@ -68,10 +65,8 @@ function loadCharacter() {
       gltf.animations.forEach(anim => mixer.clipAction(anim).play());
     },
 
-    // LOADING
+    
     undefined,
-
-    // ERROR → fallback cube
     () => {
       console.warn("Model failed, using fallback cube");
 
@@ -84,18 +79,15 @@ function loadCharacter() {
   );
 }
 
-// CONTROLS
 function setupControls() {
   document.addEventListener("keydown", e => {
     if (e.key === "ArrowLeft") lane = Math.max(-1, lane-1);
     if (e.key === "ArrowRight") lane = Math.min(1, lane+1);
 
-    // play music on first interaction (fix autoplay block)
     bgMusic.play().catch(()=>{});
   });
 }
 
-// OBSTACLES
 function spawnObstacle() {
   const o = new THREE.Mesh(
     new THREE.BoxGeometry(1,1,1),
@@ -109,11 +101,10 @@ function spawnObstacle() {
   obstacles.push(o);
 }
 
-// LOOP
+
 function animate() {
   requestAnimationFrame(animate);
 
-  // IMPORTANT: always render even if player not loaded
   if (mixer) mixer.update(0.016);
 
   if (player && running) updateGame();
@@ -121,7 +112,6 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-// GAME UPDATE
 function updateGame() {
   const laneX = [-2.5, 0, 2.5];
 
@@ -152,7 +142,6 @@ function updateGame() {
   document.getElementById("score").innerText = "Score: " + score;
 }
 
-// GAME OVER
 function endGame() {
   running = false;
 
