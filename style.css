@@ -366,10 +366,10 @@ hr {
   z-index: 1;
 }
 
-/* .peak{
-  height:10px;
-  width:15px;
-} */
+.peak{
+  height: 400px;
+  width: 150px;
+}
 
 .service-card p {
   color: #555;
